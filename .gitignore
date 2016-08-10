@@ -1,7 +1,8 @@
-/_build
-/cover
-/deps
-/doc
+_build/
+cover/
+deps/
+doc/
+rel/
 erl_crash.dump
 *.ez
 *.log
