@@ -1,5 +1,5 @@
-defmodule ProcessNodeDriver do
-  @behaviour NodeDriver
+defmodule SeServer.ProcessNodeDriver do
+  @behaviour SeServer.NodeDriver
 
   require Logger
 

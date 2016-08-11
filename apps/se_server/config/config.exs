@@ -1,4 +1,4 @@
 use Mix.Config
 
 config :se_server,
-  node_driver: ProcessNodeDriver
+  node_driver: SeServer.ProcessNodeDriver

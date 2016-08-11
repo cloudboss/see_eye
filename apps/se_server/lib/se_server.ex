@@ -17,7 +17,7 @@ defmodule SeServer do
 
   def init(:ok) do
     supervise(
-      [worker(Job, [], restart: :temporary)],
+      [worker(SeServer.Job, [], restart: :temporary)],
       strategy: :simple_one_for_one
     )
   end

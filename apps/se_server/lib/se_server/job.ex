@@ -1,4 +1,4 @@
-defmodule Job do
+defmodule SeServer.Job do
   use GenServer
   require Logger
 
