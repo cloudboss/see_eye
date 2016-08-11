@@ -25,8 +25,8 @@ defmodule SeServer.Job do
 
   def handle_cast(:spawn_node, state) do
     {uuid, _} = state
-    {:ok, factory} = Application.fetch_env(:se_server, :node_driver)
-    {:ok, _} = factory.spawn_node(uuid)
+    [node_driver: driver] = Application.get_env(:se_server, __MODULE__)
+    {:ok, _} = driver.spawn_node(uuid)
     {:noreply, state}
   end
 end
