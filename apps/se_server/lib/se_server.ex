@@ -4,7 +4,7 @@ defmodule SeServer do
 
   def start(_type, _args) do
     :syn.init
-    Supervisor.start_link(__MODULE__, :ok, name: {:via, :syn, __MODULE__})
+    Supervisor.start_link(__MODULE__, :ok)
   end
 
   def init(:ok) do

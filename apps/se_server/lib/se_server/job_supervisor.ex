@@ -5,12 +5,12 @@ defmodule SeServer.JobSupervisor do
 
   def start_job(cmd, args) do
     uuid = UUID.uuid4
-    {:ok, _} = Supervisor.start_child({:via, :syn, :job_supervisor}, [uuid, cmd, args])
+    {:ok, _} = Supervisor.start_child(__MODULE__, [uuid, cmd, args])
     {:ok, uuid}
   end
 
   def start_link do
-    Supervisor.start_link(__MODULE__, :ok, name: {:via, :syn, :job_supervisor})
+    Supervisor.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
   def init(:ok) do
