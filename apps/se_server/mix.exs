@@ -15,13 +15,16 @@ defmodule SeServer.Mixfile do
   end
 
   def application do
-    [applications: [:erlexec, :logger, :syn],
+    [applications: [:cowboy, :erlexec, :logger, :plug, :syn],
      mod: {SeServer, []}]
   end
 
   defp deps do
-    [{:erlexec, "== 1.2.2"},
+    [{:cowboy, "== 1.0.4"},
+     {:erlexec, "== 1.2.2"},
      {:exrm, "== 1.0.8"},
+     {:plug, "== 1.2.0"},
+     {:poison, "== 2.2.0"},
      {:syn, "== 1.5.0"},
      {:uuid, "== 1.1.4"}]
   end

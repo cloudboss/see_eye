@@ -9,7 +9,8 @@ defmodule SeServer do
 
   def init(:ok) do
     children = [
-      supervisor(SeServer.JobSupervisor, [])
+      supervisor(SeServer.JobSupervisor, []),
+      Plug.Adapters.Cowboy.child_spec(:http, SeServer.Web.Router, [], [port: 4001])
     ]
     supervise(children, strategy: :one_for_one)
   end
