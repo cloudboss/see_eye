@@ -8,8 +8,12 @@ defmodule SeServer.ProcessNodeDriver do
       Map.merge(System.get_env, %{"SE_MASTER" => Atom.to_string(Node.self), "SE_WORKER_ID" => uuid})
     )
     cmd = ['/bin/sh', '-c', 'se_worker start']
-    opts = [:monitor, {:env, env}]
-
+    opts = [
+      :monitor,
+      {:env, env},
+      {:stdout, fn (_, _, out) -> Logger.info(out) end},
+      {:stderr, fn (_, _, err) -> Logger.error(err) end}
+    ]
     {:ok, _, _} = :exec.run_link(cmd, opts)
     {:ok, nil}
   end

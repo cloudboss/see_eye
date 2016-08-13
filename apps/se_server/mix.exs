@@ -16,6 +16,7 @@ defmodule SeServer.Mixfile do
 
   def application do
     [applications: [:cowboy, :erlexec, :logger, :plug, :syn],
+     included_applications: [:poison, :uuid],
      mod: {SeServer, []}]
   end
 
