@@ -11,6 +11,10 @@ defmodule SeServer.Job do
     {:ok, {uuid, {cmd, args}}}
   end
 
+  def register(uuid) do
+    GenServer.cast({:via, :syn, {:job, uuid}}, {:register, {:worker, uuid}})
+  end
+
   def stop(uuid, exitcode) do
     GenServer.cast({:via, :syn, {:worker, uuid}}, {:stop, exitcode})
   end

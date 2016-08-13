@@ -8,12 +8,8 @@ defmodule SeWorker.Executor do
 
   def init(uuid) do
     Logger.info("Initializing executor #{uuid}")
-    register(uuid)
+    SeServer.Job.register(uuid)
     {:ok, uuid}
-  end
-
-  defp register(uuid) do
-    GenServer.cast({:via, :syn, {:job, uuid}}, {:register, {:worker, uuid}})
   end
 
   def handle_call({:run, {cmd, args}}, _from, uuid) do

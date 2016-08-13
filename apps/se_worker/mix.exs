@@ -16,11 +16,13 @@ defmodule SeWorker.Mixfile do
 
   def application do
     [applications: [:logger, :syn],
+     included_applications: [:se_server],
      mod: {SeWorker, []}]
   end
 
   defp deps do
     [{:exrm, "== 1.0.8"},
-     {:syn, "== 1.5.0"}]
+     {:syn, "== 1.5.0"},
+     {:se_server, in_umbrella: true}]
   end
 end
