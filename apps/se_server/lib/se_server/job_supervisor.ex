@@ -1,5 +1,3 @@
-import UUID
-
 defmodule SeServer.JobSupervisor do
   use Supervisor
 
