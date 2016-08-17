@@ -21,8 +21,7 @@ defmodule SeWorker.Mixfile do
   end
 
   defp deps do
-    [{:exrm, "== 1.0.8"},
-     {:syn, "== 1.5.0"},
+    [{:syn, "== 1.5.0"},
      {:se_server, in_umbrella: true}]
   end
 end

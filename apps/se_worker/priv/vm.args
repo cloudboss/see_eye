@@ -1,0 +1,3 @@
+-sname ${SE_WORKER_ID}
+-setcookie ${SE_KOOKY}
+-smp auto

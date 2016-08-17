@@ -23,7 +23,6 @@ defmodule SeServer.Mixfile do
   defp deps do
     [{:cowboy, "== 1.0.4"},
      {:erlexec, "== 1.2.2"},
-     {:exrm, "== 1.0.8"},
      {:plug, "== 1.2.0"},
      {:poison, "== 2.2.0"},
      {:syn, "== 1.5.0"},

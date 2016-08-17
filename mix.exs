@@ -9,6 +9,6 @@ defmodule SeeEye.Mixfile do
   end
 
   defp deps do
-    []
+    [{:distillery, "== 0.9.7"}]
   end
 end
