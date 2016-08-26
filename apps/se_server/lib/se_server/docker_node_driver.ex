@@ -6,7 +6,7 @@ defmodule SeServer.DockerNodeDriver do
   def spawn_node(uuid) do
     env = [to_char_list("SE_MASTER=#{Atom.to_string(Node.self)}"),
            to_char_list("SE_WORKER_ID=#{uuid}"),
-           to_char_list("SE_KOOKY=xyz")]
+           to_char_list("SE_KOOKY=#{Atom.to_string(Node.get_cookie)}")]
     cmd = [
       '/usr/bin/docker', 'run', '-d',
       '-e', Enum.at(env, 0),
