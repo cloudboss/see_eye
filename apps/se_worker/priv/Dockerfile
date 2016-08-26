@@ -1,7 +1,10 @@
 FROM alpine:3.4
 
 RUN set -xe && \
-    apk add --no-cache libgcc=5.3.0-r0 libstdc++=5.3.0-r0
+    apk add --no-cache \
+      libgcc=5.3.0-r0 \
+      libstdc++=5.3.0-r0 \
+      ncurses-libs=6.0-r7
 
 RUN set -xe && \
     addgroup -g 1000 elixir && \
