@@ -15,12 +15,8 @@ defmodule SeServer.DockerNodeDriver do
       '--net', 'see_eye',
       'se_worker:latest', 'foreground'
     ]
-    opts = [
-      :sync,
-      {:env, env},
-      :stdout,
-      :stderr
-    ]
+    Logger.debug("Spawning container: '#{Enum.join(Enum.map(cmd, &to_string/1), " ")}'")
+    opts = [:sync, :stdout, :stderr, {:env, env}]
     case :exec.run_link(cmd, opts) do
       {:ok, [stdout: stdout]} -> {:ok, stdout}
       {:error, [exit_status: exit_status]} -> {:error, exit_status}
